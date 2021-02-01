@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>road map</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <script src="js/jquery-3.5.1.js"></script>
+
+    <!-- 스타일 -->
+    <style>
+        @font-face { 
+            font-family: "소야다듬9.ttf";
+            src: url(./W95FA/소야다듬9.ttf);
+        }
+        body{
+            height: 0px;
+        }
+        html{
+            background: url(./img/introductionbg.png) no-repeat center center fixed;
+            /* -webkit-background-size: cover; */
+            /* -moz-background-size: cover;  */
+            /* -o-background-size: cover;  */
+            /* background-size: cover; */
+            background-repeat:no-repeat;
+            background-size:100% 100%;
+        }
+        img.bg { 
+            /* Set rules to fill background */ 
+            min-height: 100%;
+            min-width: 1024px; 
+            /* Set up proportionate scaling */ 
+            width: 100%; 
+            height: auto; 
+            /* Set up positioning */ 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+        } 
+        @media screen and (max-width: 1024px) { 
+        /* Specific to this particular image */
+            img.bg {
+                left: 50%;
+                margin-left: -512px; /* 50% */ 
+            } 
+        }
+        div{
+            text-align: center;
+        }
+
+    
+    </style>
+</head>
+<body>
+    <div>
+    <img src="./icon/com.gif" alt="" id="start" style=" width: 700px; margin-top: 75px; border-radius: 5%;">
+    <video src="./img/roadmap.mp4" controls loop id="videoRoadmap" style="display: none; width: 75%; height: 100%;"></video>
+    </div>
+    
+</body>
+<script>
+    $(start).click(function(){
+        $(videoRoadmap).show();
+        $(start).hide();
+    });
+</script>
+</html>

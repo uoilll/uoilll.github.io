@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <script src="js/jquery-3.5.1.js"></script>
+
+    <!-- 스타일 -->
+    <style>
+        @font-face { 
+            font-family: "소야다듬9.ttf";
+            src: url(./W95FA/소야다듬9.ttf);
+        }
+        body{
+            height: 0px;
+        }
+        html{
+            background: url(./img/introductionbg.png) no-repeat center center fixed;
+            /* -webkit-background-size: cover; */
+            /* -moz-background-size: cover;  */
+            /* -o-background-size: cover;  */
+            /* background-size: cover; */
+            background-repeat:no-repeat;
+            background-size:100% 100%;
+        }
+        img.bg { 
+            /* Set rules to fill background */ 
+            min-height: 100%;
+            min-width: 1024px; 
+            /* Set up proportionate scaling */ 
+            width: 100%; 
+            height: auto; 
+            /* Set up positioning */ 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+        } 
+        @media screen and (max-width: 1024px) { 
+        /* Specific to this particular image */
+            img.bg {
+                left: 50%;
+                margin-left: -512px; /* 50% */ 
+            } 
+        }
+        
+        img#logo{
+          width: 15px;
+          height: 15px;
+        }
+        p#under::first-letter{
+          font-size: 1.2em;
+          text-decoration: underline;
+        }
+        p#under{
+          width: 33px;
+          margin-top: 0px;
+          float: left;
+        }
+        div.id{
+          font-size: 15px;
+          text-align: center;
+        }
+        
+        div.profiletxt{
+          width: 897px;
+          height: 592px;
+          background-color: rgba(255, 255, 255, 0.87);
+          margin: 1px;
+          font-family: "소야다듬9.ttf";
+          font-size: 30px;
+        }
+
+        .row{
+            padding-top: 10px;
+            padding-left: 10px;
+        }
+        .typing ul li{
+            padding: 15px;
+        }
+
+        #profile{
+            margin-top: 160px;
+            margin-left: 145px;
+            float: left;
+            width: 400px;
+            height: 400px;
+            box-shadow: 1px 1px 5px 5px white;
+            border-radius: 50%;
+        }
+        
+        /* 타이핑효과 */
+        .typing-txt{
+            display: none;
+        }
+        ul{
+            list-style:none;
+        }
+        .typing ul li.on {  
+            display: inline-block; 
+            animation-name: cursor; 
+            animation-duration: 0.4s; 
+            animation-iteration-count: infinite; 
+        } 
+        @keyframes cursor{ 
+            0%{border-right: 1px solid #fff} 
+            50%{border-right: 1px solid #000} 
+            100%{border-right: 1px solid #fff} 
+        }
+    </style>
+</head>
+<body>
+    <img src="./img/hj.png" alt="" id="profile">
+    <div class="window" id="myWindow" style="margin: 32px 32px 32px 80px; width: 900px; height: 660px; float: left">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="title-bar">
+          <div class="title-bar-text">
+            <img src="icon/memo.PNG" alt="" id="logo">&nbsp; Note
+          </div>
+  
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <p id="under">File</p>
+          <p id="under">Edit</p>
+          <p id="under">View</p>
+          <p id="under" style="padding-left: 8px;">Options</p>
+          <p id="under" style="padding-left: 19px;">Help</p>
+          
+        </div>
+        <br><br><br>
+        <fieldset style="padding: 0; height: 595px;">         
+            <div id="profiletxt" class="profiletxt">
+                    
+                    <div class="row">
+                        <div class="typing-txt"> 
+                            <ul>
+                              <li>이름 : 이효정</li>
+                              <li>생년월일 : 1992년 9월 4일</li>
+                              <li>이메일 : llu_oll@naver.com</li>
+                              <li>직업 : 백수 & 두마리 고양이 집사</li>
+                              <li>이상형 : 유아인</li>
+                              <li>유아인 닮은 지인이 있다면 이메일로 연락 부탁드립니다...</li>
+                            </ul> 
+                        </div> 
+                        <div class="typing">
+                            <ul>
+                               <li></li>
+                               <li></li>
+                               <li></li>
+                               <li></li>
+                               <li></li>
+                               <li></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                
+
+            </div>
+        </fieldset>
+        
+      </div>
+      </div>
+      </div>
+
+      <script>
+        setTimeout(function(){
+        var typingBool = false; 
+        var typingIdx = 0; 
+        var liIndex = 0;
+        var liLength = $(".typing-txt>ul>li").length;
+    
+        // 타이핑될 텍스트를 가져온다 
+        var typingTxt = $(".typing-txt>ul>li").eq(liIndex).text(); 
+        //liIndex 인덱스로 구분해 한줄씩 가져옴
+    
+        typingTxt=typingTxt.split(""); // 한글자씩 잘라 배열로만든다
+    
+        if(typingBool==false){ // 타이핑이 진행되지 않았다면 
+            typingBool=true; 
+            var tyInt = setInterval(typing,100); // 반복동작 
+        } 
+            
+        function typing(){ 
+        $(".typing ul li").removeClass("on");
+        $(".typing ul li").eq(liIndex).addClass("on");
+        //현재 타이핑되는 문장에만 커서 애니메이션을 넣어준다.
+        
+        if(typingIdx<typingTxt.length){ // 타이핑될 텍스트 길이만큼 반복 
+            $(".typing ul li").eq(liIndex).append(typingTxt[typingIdx]); // 한글자씩 이어준다. 
+            typingIdx++; 
+        } else{ //한문장이끝나면
+            if(liIndex<liLength-1){
+                //다음문장으로  가기위해 인덱스를 1증가
+                liIndex++; 
+                //다음문장을 타이핑하기위한 셋팅
+                    typingIdx=0;
+                    typingBool = false; 
+                    typingTxt = $(".typing-txt>ul>li").eq(liIndex).text(); 
+                
+                //다음문장 타이핑전 1초 쉰다
+                    clearInterval(tyInt);
+                    //타이핑종료
+                
+                    setTimeout(function(){
+                    //1초후에 다시 타이핑 반복 시작
+                    tyInt = setInterval(typing,100);
+                    },1000);
+                } else if(liIndex==liLength-1){
+                
+                //마지막 문장까지 써지면 반복종료
+                clearInterval(tyInt);
+                
+                //1초후
+                setTimeout(function(){
+                    //사용했던 변수 초기화
+                    typingBool = false; 
+                    liIndex=0;
+                    typingIdx=-0;
+                        
+                        //첫번째 문장으로 셋팅
+                    typingTxt = $(".typing-txt>ul>li").eq(liIndex).text(); 
+                        //타이핑 결과 모두 지우기
+                    $(".typing ul li").html("")
+                    
+                    //반복시작
+                    tyInt = setInterval(typing,100);
+                }, 1000);
+                
+                
+                }
+            } 
+        }
+        },1500);  
+    </script>
+</body>
+</html>

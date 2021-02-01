@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trip</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <script src="js/jquery-3.5.1.js"></script>
+
+    <!-- 스타일 -->
+    <style>
+        @font-face { 
+            font-family: "소야다듬9.ttf";
+            src: url(./W95FA/소야다듬9.ttf);
+        }
+        body{
+            height: 0px;
+        }
+        html{
+            background: url(./img/introductionbg.png) no-repeat center center fixed;
+            /* -webkit-background-size: cover; */
+            /* -moz-background-size: cover;  */
+            /* -o-background-size: cover;  */
+            /* background-size: cover; */
+            background-repeat:no-repeat;
+            background-size:100% 100%;
+        }
+        img.bg { 
+            /* Set rules to fill background */ 
+            min-height: 100%;
+            min-width: 1024px; 
+            /* Set up proportionate scaling */ 
+            width: 100%; 
+            height: auto; 
+            /* Set up positioning */ 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+        } 
+        @media screen and (max-width: 1024px) { 
+        /* Specific to this particular image */
+            img.bg {
+                left: 50%;
+                margin-left: -512px; /* 50% */ 
+            } 
+        }
+        
+        img#logo{
+          width: 15px;
+          height: 15px;
+        }
+        p#under::first-letter{
+          font-size: 1.2em;
+          text-decoration: underline;
+        }
+        p#under{
+          width: 33px;
+          margin-top: 0px;
+          float: left;
+        }
+        div.id{
+          font-size: 15px;
+          text-align: center;
+        }
+        
+        div.homepage{
+          width: 1247px;
+          height: 517px;
+          margin: 1px;
+          font-family: "소야다듬9.ttf";
+          overflow-y: scroll;
+          
+        }
+        #fhomepage{
+          background: url(./img/airplane.gif) no-repeat center center fixed;
+          background-repeat:no-repeat;
+          background-size: 100% 100%
+        }
+
+        .row{
+            padding-top: 10px;
+            padding-left: 10px;
+        }
+        .typing ul li{
+            padding: 15px;
+        }
+
+        #profile{
+            margin-top: 160px;
+            margin-left: 145px;
+            float: left;
+            width: 400px;
+            height: 400px;
+        }
+        .window-body #windowlog{
+            float: right;
+            width: 40px;
+            height: 25px;
+            
+        }
+        div #menuEx{
+            float: left;
+            width: 500px; 
+            margin-top: 6px;
+            margin-left: 10px;           
+        }
+        #arrow{
+            height: 50px;
+            font-size: 40px;
+            /* color: rgb(102, 101, 101); */
+            float: left;
+        }
+        #arrow a{
+            text-decoration:none !important;
+            color: rgb(102, 101, 101);
+        }
+
+        .homepageName{
+            margin-left: 480px;
+        }
+        .homepageName p {
+            margin: 20px 10px 0px 10px;
+            float: left;
+            font-size: 50px;
+            font-weight: bold;
+            text-shadow: 2px 6px 2px gray;
+            
+        }
+        .content p{
+            margin: 30px;
+            /* float: left; */
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="window" id="myWindow" style="margin: 10px 32px 32px 200px; width: 1250px; height: 690px; float: left">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="title-bar">
+          <div class="title-bar-text">
+            <img src="icon/memo.PNG" alt="" id="logo">&nbsp; HyoJung - Internet Explorer
+          </div>
+  
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <p id="under">File</p>
+          <p id="under">Edit</p>
+          <p id="under">View</p>
+          <p id="under">Bookmark</p>
+          <p id="under" style="padding-left: 20px;">Tool</p>
+          <p id="under" >Help</p>
+          <img src="./icon/windowlog.png" alt="" id="windowlog">
+          <br><br>
+          <hr>
+          <button id="arrow"><a href="./index.html">⇦</a></button>
+          <button id="arrow"><a href="./instagram.html">⇨</a></button>
+          <div>
+          <img src="./img/menuEx.png" alt="" id="menuEx">
+         </div>
+         <br><br><br>
+         <br><hr style="margin-top: 10px; ">
+         <p id="under" style="margin-top: 2px; margin-bottom: 0px;">Address</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <select>
+            <option value="http" selected="selected">
+                https://www.hyojung.co.kr
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            </option>
+            <option value="http2">
+                https://www.naver.com
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            </option>
+            <option value="http3">
+                https://www.daum.com
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            </option>
+            <option value="http4">
+                https://www.google.com
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            </option>
+        </select>
+        <hr>
+          
+        </div>
+        <fieldset style="padding: 0; height: 520px;" id="fhomepage">         
+            <div id="homepage" class="homepage">
+                <div class="homepageName">
+                    <p style="color: rgb(181, 250, 255);">H</p>
+                    <p style="color:  rgb(50, 203, 214);">y</p>
+                    <p style="color: rgb(255, 252, 212);">o</p>
+                    <p style="color: rgb(255, 240, 200);">J</p>
+                    <p style="color: rgb(252, 172, 126);">u</p>
+                    <p style="color: rgb(255, 150, 131);">n</p>
+                    <p style="color: rgb(255, 175, 155);">g</p>
+                </div>
+                <br><br><br><br><br><br><hr>
+                <div class="content">
+                    <p id="dalian">KR ✈ 중국 대련</p>
+                    <p id="shanghai">KR ✈ 중국 상해</p>
+                    <p id="turkey">KR ✈ 터키 이스탄불 ✈ 카파도키아 ✈ 페티예 ✈ 셀추크</p>
+                    <p id="usa">KR ✈ 미국 LA ✈ 라스베거스 ✈ LA</p>
+                    <p id="europe">KR ✈ 포르투갈 포르투 ✈ 스페인 바르셀로나 ✈ 포르투</p>
+                    <br><br><br>
+                    <hr>
+                    <p>더 많은 사진을 보고 싶으시다면 ☞ <a href="./instagram.html">instagram</a> </p>
+                </div>
+
+
+            </div>
+        </fieldset>
+        
+      </div>
+      </div>
+      </div>
+
+      <!-- 스크립트 -->
+      <script>
+          $(dalian).click(function(){
+            open("./dalian.html","popup","width=480, height=310, top=150, left=400");
+          });
+          $(shanghai).click(function(){
+            open("./shanghai.html","popup","width=480, height=310, top=150, left=400");
+          });
+          $(turkey).click(function(){
+            open("./turkey.html","popup","width=480, height=310, top=150, left=400");
+          });
+          $(usa).click(function(){
+            open("./usa.html","popup","width=480, height=310, top=150, left=400");
+          });
+          $(europe).click(function(){
+            open("./europe.html","popup","width=480, height=310, top=150, left=400");
+          });
+      </script>
+      
+</body>
+</html>

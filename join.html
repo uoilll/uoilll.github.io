@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>join</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <script src="./js/jquery-3.5.1.js"></script>
+
+    <!-- 스타일 -->
+    <style>
+        @font-face { 
+            font-family: "소야다듬9.ttf";
+            src: url(./W95FA/소야다듬9.ttf);
+        }
+        /* body{
+            height: 0px;
+        } */
+        html{
+            background: url(./img/introductionbg.png) no-repeat center center fixed;
+            /* -webkit-background-size: cover; */
+            /* -moz-background-size: cover;  */
+            /* -o-background-size: cover;  */
+            /* background-size: cover; */
+            background-repeat:no-repeat;
+            background-size:100% 100%;
+        }
+        img.bg { 
+            /* Set rules to fill background */ 
+            min-height: 100%;
+            min-width: 1024px; 
+            /* Set up proportionate scaling */ 
+            width: 100%; 
+            height: auto; 
+            /* Set up positioning */ 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+        } 
+        @media screen and (max-width: 1024px) { 
+        /* Specific to this particular image */
+            img.bg {
+                left: 50%;
+                margin-left: -512px; /* 50% */ 
+            } 
+        }
+        
+        img#logo{
+          width: 15px;
+          height: 15px;
+        }
+        p#under::first-letter{
+          font-size: 1.2em;
+          text-decoration: underline;
+        }
+        p#under{
+          width: 33px;
+          margin-top: 0px;
+          float: left;
+        }
+        div.id{
+          font-size: 15px;
+          text-align: center;
+        }
+        
+        div.homepage{
+          width: 1247px;
+          height: 517px;
+          margin: 1px;
+          font-family: "소야다듬9.ttf";
+          overflow-y: scroll;
+          /* background-color: white; */
+          background: url(./img/ddd.gif) no-repeat center center fixed;
+          background-repeat:no-repeat;
+          background-size:100% 100%;
+
+          
+        }
+        /* #fhomepage{
+          background: url(./img/airplane.gif) no-repeat center center fixed;
+          background-repeat:no-repeat;
+          background-size: 100% 100%
+        } */
+
+        .row{
+            padding-top: 10px;
+            padding-left: 10px;
+        }
+        .typing ul li{
+            padding: 15px;
+        }
+
+        #profile{
+            margin-top: 160px;
+            margin-left: 145px;
+            float: left;
+            width: 400px;
+            height: 400px;
+        }
+        .window-body #windowlog{
+            float: right;
+            width: 40px;
+            height: 25px;
+            
+        }
+        div #menuEx{
+            float: left;
+            width: 500px; 
+            margin-top: 6px;
+            margin-left: 10px;           
+        }
+        #arrow{
+            height: 50px;
+            font-size: 40px;
+            /* color: rgb(102, 101, 101); */
+            float: left;
+        }
+        #arrow a{
+            text-decoration:none !important;
+            color: rgb(102, 101, 101);
+        }
+
+        .homepageName{
+            margin-left: 480px;
+        }
+        .homepageName p {
+            margin: 20px 10px 0px 10px;
+            float: left;
+            font-size: 50px;
+            font-weight: bold;
+            text-shadow: 2px 6px 2px gray;
+        }
+        .content{
+            margin: 50px;
+            font-size: 25px;
+            text-align: center;
+        }
+        form[name=memberEnrollFrm] ul {
+            padding-left: 0px;
+            list-style : none;
+            line-height: 55px;
+            text-align: center;
+        }
+        form[name=memberEnrollFrm] ul li label{
+            font-size: 15px;
+            font-family: "소야다듬9.ttf";
+            
+        }
+        form[name=memberEnrollFrm] ul li input{
+            font-size: 13px;
+            font-family: "소야다듬9.ttf";
+            height: 30px; 
+            width: 200px;
+            
+        }
+        #joinform{
+            background-color: rgb(217, 230, 255);
+            box-shadow: 1px 1px 5px 5px  rgb(193, 193, 255);
+        }
+
+        #image_container img{
+            width: 100px;
+            height: 100px; 
+            border-radius: 70%;
+        }
+
+        .search{
+            float: left; margin-left: 130px;
+            box-shadow: 1px 1px 5px 5px  rgb(215, 215, 253);
+            border-radius: 100px;
+            padding: 10px;
+            width: 520px;
+            text-align: center;
+            
+        }
+        .search label{
+            font-size: 15px;
+            font-family: "소야다듬9.ttf";
+            
+        }
+        .search input{
+            font-size: 13px;
+            font-family: "소야다듬9.ttf";
+            height: 30px; 
+            width: 300px;
+        }
+        .search button{
+            height: 31px; 
+            font-family: "소야다듬9.ttf";
+            font-size: 12px;
+        }
+
+        .guest_book{
+            float: left; margin-left: 130px; margin-top: 50px;
+            box-shadow: 1px 1px 5px 5px  rgb(230, 215, 253);
+            background-color: rgb(237, 235, 255);
+            width: 540px;
+        }
+        #guestBookInput label{
+            font-family: "소야다듬9.ttf";
+            font-size: 15px;
+        }
+        #guestBookInput input{
+            font-family: "소야다듬9.ttf";
+            font-size: 15px;
+            width: 500px;
+            height: 30px;
+        }
+        #guestBookInput textarea{
+            width: 500px;
+            height: 50px;
+            font-family: "소야다듬9.ttf";
+            font-size: 15px;
+        }
+
+        .wrapper{
+            font-family: "소야다듬9.ttf";
+            font-size: 15px;
+        }
+        .wrapper2{
+            font-family: "소야다듬9.ttf";
+            font-size: 15px;
+        }
+        #guestBook {
+          border: 2px solid white;
+          box-shadow: 1px 1px 5px 5px  rgb(253, 187, 215);
+
+          border-collapse: collapse;
+          margin: 40px 0;
+          width: 500px;
+        }      
+        #guestBook th, #guestBook td {
+          border: 1px solid rgb(255, 225, 225);
+          background-color:  rgb(255, 241, 241);
+          padding: 8px;     
+        }
+
+        #memberList {
+          border: 2px solid white;
+          box-shadow: 1px 1px 5px 5px  rgb(253, 187, 215);
+
+          border-collapse: collapse;
+          margin: 40px 0;
+          width: 500px;
+        } 
+        #memberList th, #memberList td {
+          border: 1px solid rgb(255, 225, 225);
+          background-color:  rgb(255, 241, 241);
+          padding: 8px;     
+        }
+
+    </style>
+</head>
+<body>
+    <div class="window" id="myWindow" style="margin: 10px 32px 32px 200px; width: 1250px; height: 690px; float: left ">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="title-bar">
+          <div class="title-bar-text">
+            <img src="icon/memo.PNG" alt="" id="logo">&nbsp; HyoJung - Internet Explorer
+          </div>
+  
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <p id="under">File</p>
+          <p id="under">Edit</p>
+          <p id="under">View</p>
+          <p id="under">Bookmark</p>
+          <p id="under" style="padding-left: 20px;">Tool</p>
+          <p id="under" >Help</p>
+          <img src="./icon/windowlog.png" alt="" id="windowlog">
+          <br><br>
+          <hr>
+          <button id="arrow"><a href="./index.html">⇦</a></button>
+          <button id="arrow"><a href="">⇨</a></button>
+          <div>
+          <img src="./img/menuEx.png" alt="" id="menuEx">
+         </div>
+         <br><br><br>
+         <br><hr style="margin-top: 10px; ">
+         <p id="under" style="margin-top: 2px; margin-bottom: 0px;">Address</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <select>
+            <option value="http" selected="selected">
+                https://www.hyojung.co.kr
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            </option>
+            <option value="http2">
+                https://www.naver.com
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            </option>
+            <option value="http3">
+                https://www.daum.com
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            </option>
+            <option value="http4">
+                https://www.google.com
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            </option>
+        </select>
+        <hr>
+          
+        </div>
+        <fieldset style="padding: 0; height: 520px;" id="fhomepage">         
+            <div id="homepage" class="homepage">
+                <div class="homepageName">
+                    <p style="color: rgb(181, 250, 255);">H</p>
+                    <p style="color:  rgb(50, 203, 214);">y</p>
+                    <p style="color: rgb(255, 252, 212);">o</p>
+                    <p style="color: rgb(255, 240, 200);">J</p>
+                    <p style="color: rgb(252, 172, 126);">u</p>
+                    <p style="color: rgb(255, 150, 131);">n</p>
+                    <p style="color: rgb(255, 175, 155);">g</p>
+                </div>
+                <br><br><br><br><br><br><hr>
+                <div class="content">
+                    <div class="top" style="height: 480px;">
+                        <form action="javascript:saveMemberList();" name="memberEnrollFrm" method="GET" style="width: 400px; float: left;"><!-- 회원가입은 원래 post방식으로 해줘야함 -->
+                            <fieldset id="joinform">
+                                <legend style="background-color: rgb(193, 193, 255);">회원가입</legend>
+                                <!-- ul>(li>label+input)*4 -->
+                                
+                                <ul>
+                                    <input type="file" id="image" accept="image/*" onchange="setThumbnail(event);"/> 
+                                    <div id="image_container"></div>
+
+                                    <li><label for="memberId">아이디</label><input type="text" name="memberId" id="memberId" autocomplete="off" placeholder="2글자 이상" style="margin-left: 83.37px;"></li>
+                                    <li><label for="memberName">이름</label><input type="text" name="memberName" id="memberName" autocomplete="off" placeholder="한글 2글자 이상" style="margin-left: 98.67px;"></li>
+                                    <li><label for="pwd">비밀번호</label><input type="text" name="pwd" id="pwd"  placeholder="4글자 이상" autocomplete="off" style="margin-left: 73.16px;"></li>
+                                    <li><label for="pwdCheck">비밀번호 확인</label><input type="text" name="pwdCheck" id="pwdCheck" autocomplete="off" style="margin-left: 40px;"></li>
+                                    <li><td colspan="3">
+                                            <button type="submit" style="color: rgb(0, 0, 184);" id="joinbtn">회원가입</button></td>
+                                        &emsp;
+                                            <button><a href="./index.html" style="text-decoration:none !important; color: rgb(190, 0, 0);">취소</a></button>
+                                    </li>
+                                </ul>
+                                
+                            </fieldset>
+                        </form> 
+                        
+                        <div class="search">
+                            <label for="serchword">통합검색&emsp;</label><input type="text" name="serchword" id="serchword" value=" 이 효 정">
+                            <button><a href="./introduction.html" style="text-decoration:none !important;">검색</a></button>
+                        </div>
+                        <form action="javascript:saveGuestBook();" class="guest_book" >
+                            <h5 style="margin: 20px;">방명록</h5>
+                            <img src="./img/cy.jpg" alt="" style="border-radius: 50px; width:450px; height: 195px;">
+                            <table id="guestBookInput">
+                                <tr>
+                                <th><label for="userName">이름</label></th>
+                                <td><input type="text" name="userName" id="userName" autocomplete="off"></td>
+                                </tr>
+                                <tr>
+                                <th><label for="userMemo">내용</label></th>
+                                <td><textarea name="userMemo" id="userMemo"></textarea></td>
+                                </tr>
+                                <tr>
+                                <td colspan="2">
+                                    <button type="submit">저장</button>
+                                </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <br><br>  
+                    <hr>
+                    <button id="btnmember" style="color:rgb(189, 43, 226)">회원 목록</button>&emsp;<button id="btnbook" style="color:rgb(113, 16, 204)">방명록 목록</button>
+
+                    <div class="middle" >
+                        <div class="wrapper" style="margin-left: 320px;">
+                            <table id="guestBook" style="display: none;">
+                            </table>                           
+                        </div>
+                        <div class="wrapper2" style="margin-left: 320px;">
+                            <table id="memberList" style="display: none;">
+                            </table>
+                        </div>
+                        <button id="closebtn" style="display: none; color: rgb(226, 43, 150);">닫기</button>
+                    </div>
+                </div>
+                       
+            </div>
+            
+        </fieldset>
+        
+      </div>
+      </div>
+      </div>
+
+      <!-- 스크립트 -->
+      <script>
+
+        //회원목록보기, 방명록보기 버튼
+          $(btnbook).click(function(){
+            $(guestBook).show();
+            $(closebtn).show();
+            $(memberList).hide();
+          })
+          $(btnmember).click(function(){
+              $(memberList).show();
+              $(guestBook).hide();
+              $(closebtn).show();
+          })
+          $(closebtn).click(function(){
+            $(guestBook).hide();
+            $(memberList).hide();
+            $(closebtn).hide();
+          })
+          
+        //   $(joinbtn).click(function(){
+        //         $(image_container).hide();
+        //     })
+
+
+        /* 회원목록 */
+        function saveMemberList(){
+            var memberList = new MemberList($(image).val(),$(memberId).val(), $(memberName).val(), $(pwd).val(), $(pwdCheck).val());
+            console.log(memberList);
+
+            //기존데이터 가져오기. 존재하지 않을때만 새배열 생성
+            var arr2 = JSON.parse(localStorage.getItem("arr2"));
+            if(arr2 == null){ //arr2이 널이면
+                arr2 = []; //arr2에 배열추가
+            }
+            arr2.push(memberList);
+            console.log(arr2);
+
+            //배열로 저장
+            var jsonStr = JSON.stringify(arr2);
+            localStorage.setItem("arr2", jsonStr);
+            
+            //초기화
+            $(memberId).val('').focus();
+            $(memberName).val('');
+            $(pwd).val('');
+            $(pwdCheck).val('');
+            $(image).val('').show();
+
+
+            //새로입력된 정보로 갱신 (저장누르자마자 바로 새정보 뜨게)
+            loadMemberList();
+        }
+        //생성자 함수
+        function MemberList(image,memberId, memberName, pwd, pwdCheck){
+            this.image = image;
+            this.memberId = memberId;
+            this.memberName = memberName;
+            this.pwd = pwd;
+            this.pwdCheck = pwdCheck;
+        }
+
+        /**
+         * html DOM등록을 마치면(load), localStorage의 데이터를 읽어서 테이블로 출력 
+         */ 
+        //방문자 정보 화면 출력하기 (온로드함수 꼭 필요: 화면 나오자마자 실행하는것)
+        $(function(){
+            loadMemberList();
+        });
+
+        /**
+         * 화면 최초로딩시, 방문자정보 새로 추가시 호출되어
+         * 화면에 회원정보를 표시한다.
+         */ 
+        function loadMemberList(){
+            var arr2 = JSON.parse(localStorage.getItem("arr2"));
+            var $memberList = $("#memberList");//table태그
+
+            //헤더부분 추가
+            $memberList.html("<tr><th>사진</th><th>아이디</th><th>이름</th></tr>");
+
+            //내용부분 추가
+            if(arr2 == null){
+                $memberList.append("<tr><td colspan='3'>회원이 없습니다.</td></tr>");
+            }
+            else {
+                arr2.reverse();//회원 내림차순(최근작성이 위로)
+                $.each(arr2, function(index, elem){
+                    var date = new Date(elem.time); 
+                    var tr = "<tr>";
+                    tr += "<td>" + elem.image + "</td>"; 
+                    tr += "<td>" + elem.memberId + "</td>";
+                    tr += "<td>" + elem.memberName + "</td>";
+                    tr += "</tr>";
+                    $memberList.append(tr);
+                });
+            }
+
+        }
+
+//////////////////////////////////////////////////////////////////////////////////////
+        /* 방명록 */
+        function saveGuestBook(){
+            var guestBook = new GuestBook($(userName).val(), $(userMemo).val());
+            console.log(guestBook);
+
+            //기존데이터 가져오기. 존재하지 않을때만 새배열 생성
+            var arr = JSON.parse(localStorage.getItem("arr"));
+            if(arr == null){ //arr이 널이면
+                arr = []; //arr에 배열추가
+            }
+            arr.push(guestBook);
+            console.log(arr);
+
+            //배열로 저장
+            var jsonStr = JSON.stringify(arr);
+            localStorage.setItem("arr", jsonStr);
+            
+            //초기화
+            $(userName).val('').focus();
+            $(userMemo).val('');
+
+            //새로입력된 정보로 갱신 (저장누르자마자 바로 새정보 뜨게)
+            loadGuestBook();
+        }
+        //생성자 함수
+        function GuestBook(name, memo){
+            this.name = name;
+            this.memo = memo;
+        }
+
+        /**
+         * html DOM등록을 마치면(load), localStorage의 데이터를 읽어서 테이블로 출력 
+         */ 
+        //방문자 정보 화면 출력하기 (온로드함수 꼭 필요: 화면 나오자마자 실행하는것)
+        $(function(){
+            loadGuestBook();
+        });
+
+        /**
+         * 화면 최초로딩시, 방문자정보 새로 추가시 호출되어
+         * 화면에 방명록정보를 표시한다.
+         */ 
+        function loadGuestBook(){
+            var arr = JSON.parse(localStorage.getItem("arr"));
+            var $guestBook = $(guestBook);//table태그
+
+            //헤더부분 추가
+            $guestBook.html("<tr><th>이름</th><th>내용</th></tr>");
+
+            //내용부분 추가
+            if(arr == null){
+                $guestBook.append("<tr><td colspan='3'>방문자가 없습니다.</td></tr>");
+            }
+            else {
+                arr.reverse();//방명록 내림차순(최근작성이 위로)
+                $.each(arr, function(index, elem){
+                    var date = new Date(elem.time); //unix second -> date객체
+                    var tr = "<tr>";
+                    tr += "<td>" + elem.name + "</td>";
+                    tr += "<td>" + elem.memo.replaceAll("\n","<br>") + "</td>";
+                    tr += "</tr>";
+                    $guestBook.append(tr);
+                });
+            }
+
+        }
+
+        $(joinbtn).click(function(){
+                $(image_container).empty();
+        });
+        /* 첨부파일 */
+        function setThumbnail(event) { 
+            var reader = new FileReader();
+            reader.onload = function(event) { 
+                var img = document.createElement("img"); 
+                img.setAttribute("src", event.target.result); 
+                document.querySelector("div#image_container").appendChild(img); 
+                $(image).hide();
+            };
+            var readerimg = reader.readAsDataURL(event.target.files[0]);
+            $(image_container).show();
+           
+        } 
+
+
+        var frm = document.querySelector("[name=memberEnrollFrm]");
+        // console.log(frm);
+
+        /**
+         * 폼 유효성 검사
+         * 각 input태그값이 모두 유효할 때만 return true 하고, 폼이 제출된다.
+         * return false하면 폼이 제출되지 않는다.
+         */ 
+        frm.onsubmit = function(){
+            //1. id 검사
+            //문자열 길이는 length속성. 메소드 아님
+            if(memberId.value.length < 2){
+                alert("아이디는 3글자 이상이여야 합니다.");
+                // memberId.focus(); 또는 select()사용 focus():적은내용에 마우스올려줌 / select():적은내용 드레그되서 마우스올려줌 
+                memberId.select();
+                return false;//조기리턴 폼제출방지//이벤트핸들러에 데이터비교 후 맞지않으면 false를리턴
+            }
+
+            //2. 이름 검사
+            if(/^[가-힣]{2,}$/.test(memberName.value) == false){
+                alert("이름은 한글 2글자 이상이여야 합니다.");
+                memberName.select();
+                return false;
+            }
+
+            //3. 비밀번호 검사 : 4글자 이상 && (pwd.value == pwdCheck.value)
+            if(pwd.value.length < 4){
+                alert("비밀번호는 4글자 이상이어야 합니다.");
+                pwd.select();
+                return false;
+            }
+
+            if(pwd.value != pwdCheck.value){
+                alert("비밀번호가 일치하지 않습니다.");
+                pwd.value='';//초기화
+                pwdCheck.value='';//초기화
+                pwd.focus();
+                return false;
+            }
+
+            if(!image.value){
+                alert("사진을 넣어주세요.");
+                return false;
+            }
+
+            return true;
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hyo jung instagram</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <script src="js/jquery-3.5.1.js"></script>
+    
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script> -->
+
+    <!-- 스타일 -->
+    <style>
+        /* 폰트 */
+        /* @font-face { 
+            font-family: "W95FA.orf";
+            src: url(W95FA/W95FA.otf);
+        } */
+        @font-face { 
+            font-family: "소야다듬9.ttf";
+            src: url(./W95FA/소야다듬9.ttf);
+        }
+
+        body{
+            height: 0px;
+        }
+        html{
+            background: url(./img/introductionbg.png) no-repeat center center fixed;
+            /* -webkit-background-size: cover; */
+            /* -moz-background-size: cover;  */
+            /* -o-background-size: cover;  */
+            /* background-size: cover; */
+            background-repeat:no-repeat;
+            background-size:100% 100%;
+        }
+        img.bg { 
+            /* Set rules to fill background */ 
+            min-height: 100%;
+            min-width: 1024px; 
+            /* Set up proportionate scaling */ 
+            width: 100%; 
+            height: auto; 
+            /* Set up positioning */ 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+        } 
+        @media screen and (max-width: 1024px) { 
+        /* Specific to this particular image */
+            img.bg {
+                left: 50%;
+                margin-left: -512px; /* 50% */ 
+            } 
+        }
+        
+        img#logo{
+          width: 15px;
+          height: 15px;
+        }
+        p#under::first-letter{
+          font-size: 1.2em;
+          text-decoration: underline;
+        }
+        p#under{
+          width: 33px;
+          margin-top: 0px;
+          float: left;
+        }
+        div.id{
+          font-size: 15px;
+          text-align: center;
+        }
+        div.profile b{
+          padding-left: 70px;
+          font-size: 20px;
+          float: left;
+        }
+        div.profile p#mark{
+          margin-top: 0px;
+          padding-left: 66px;
+          font-size: 10px;
+          float: left;
+        }
+        div.profile b#userName{
+          font-size: 13px;
+          padding-left: 10px;
+        }
+
+        li{
+        display: inline-block;
+        }
+        ul{
+          text-align: center;
+          padding: 0px;
+          /* padding-top: 50px; */
+        }
+
+        
+        .result{
+          float: left;
+          z-index: 99999;
+          margin-left: 100px;
+        }
+
+        
+        .small:hover + img.pic {
+          visibility: visible;
+          position:absolute;
+          opacity: 1;
+        }
+        img.pic {
+            position:absolute;
+            visibility: hidden;
+            left: 914px;
+            top: 220px;
+            z-index: 99999999999;
+            width: 500px;
+            height: 460px;
+            opacity: 0;
+            transition: opacity 2s;
+        }
+        div.gallery{
+          width: 464px;
+          height: 310px;
+          /* margin:0 auto;
+          position: relative; */
+          overflow-y: scroll;
+        }
+        div.gallery2{
+          width: 764px;
+          height: 464px;
+          background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="window" id="myWindow" style="margin: 32px 32px 32px 100px; width: 500px; height: 660px; float: left">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="title-bar">
+          <div class="title-bar-text">
+            <img src="icon/instalogo.png" alt="" id="logo">&nbsp; Instagram.exe
+          </div>
+  
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <p id="under">File</p>
+          <p id="under">Edit</p>
+          <p id="under">View</p>
+          <p id="under" style="padding-left: 8px;">Options</p>
+          <p id="under" style="padding-left: 19px;">Help</p>
+          <br><br><br>
+          <div class="id">
+            <b id="userId">ll.u_oll</b><!--굵은글씨-->
+          </div>
+
+          <br>
+          <hr>
+          <br>
+          <div class="profile">
+            <img src="./img/hj.png" alt="" style="width: 100px; border-radius: 70%; float: left;">
+            <b>92</b><b>09</b><b>04</b><br><br>
+            <p id="mark">게시물</p><p id="mark">팔로워</p><p id="mark">팔로잉</p><br><br><br>
+            <button style="float: left; width: 140px; font-size:13px; margin-left: 40px;" >+ Follow</button>
+            <button style="float: left; width: 140px; font-size:13px; margin-left: 10px;">Message</button>
+            <br><br><br><br>
+            <b id="userName">Lee Hyo Jung</b><br>
+            <p style="padding-left: 10px;">여행을 좋아하는 취준생..✈✈✈</p>
+            <hr>
+          </div>
+
+          <button style="float: left; width: 230px; font-size:13px; margin-left: 10px;" >▦</button>
+          <button style="float: left; width: 230px; font-size:13px; margin-left: 5px;">👤</button><br><br><br>
+          <fieldset>
+          
+          <div id="gallery" class="gallery">
+     
+            <ul>
+              <div>
+                <li> 
+                  <img src="photo/instagram/pic23.jpg" class="small" width="147" height="147"> 
+                  <img src="photo/instagram/pic23.jpg" class="pic"> 
+                </li>
+                <li>
+                  <img src="photo/instagram/pic22.jpg" class="small" width="147" height="147"> 
+                  <img src="photo/instagram/pic22.jpg" class="pic"> 
+                </li>
+                <li>
+                  <img src="photo/instagram/pic12.jpg" class="small" width="147" height="147"> 
+                  <img src="photo/instagram/pic12.jpg" class="pic"> 
+                </li>
+              </div>
+              <div>
+                <li>
+                  <img src="photo/instagram/usa18.jpg" class="small" width="147" height="147"> 
+                  <img src="photo/instagram/usa18.jpg" class="pic"> 
+                </li>
+                <li>
+                  <img src="photo/instagram/usa7.jpg" class="small" width="147" height="147">
+                  <img src="photo/instagram/usa7.jpg" class="pic"> 
+                </li>
+                <li>
+                  <img src="photo/instagram/shanghai5.jpg" class="small" width="147" height="147">
+                  <img src="photo/instagram/shanghai5.jpg" class="pic"> 
+                </li>
+              </div>
+              <div>
+                <li>
+                  <img src="photo/instagram/pic5.jpg" class="small" width="147" height="147"> 
+                  <img src="photo/instagram/pic5.jpg" class="pic"> 
+                </li>
+                <li>
+                  <img src="photo/instagram/europe3.jpg" class="small" width="147" height="147">
+                  <img src="photo/instagram/europe3.jpg" class="pic"> 
+                </li>
+                <li>
+                  <img src="photo/instagram/turkey7.jpg" class="small" width="147" height="147">
+                  <img src="photo/instagram/turkey7.jpg" class="pic"> 
+                </li>
+              </div>
+              <div>
+                <li>
+                  <img src="photo/instagram/turkey9.jpg" class="small" width="147" height="147"> 
+                  <img src="photo/instagram/turkey9.jpg" class="pic"> 
+                </li>
+                <li>
+                  <img src="photo/instagram/pic17.jpg" class="small" width="147" height="147">
+                  <img src="photo/instagram/pic17.jpg" class="pic"> 
+                </li>
+                <li>
+                  <img src="photo/instagram/pic3.jpg" class="small" width="147" height="147">
+                  <img src="photo/instagram/pic3.jpg" class="pic"> 
+                </li>
+              </div>
+              <div>
+                <li>
+                  <img src="photo/instagram/usa8.jpg" class="small" width="147" height="147"> 
+                  <img src="photo/instagram/usa8.jpg" class="pic"> 
+                </li>
+                <li>
+                  <img src="photo/instagram/pic18.jpg" class="small" width="147" height="147">
+                  <img src="photo/instagram/pic18.jpg" class="pic"> 
+                </li>
+                <li>
+                  <img src="photo/instagram/pic20.jpg" class="small" width="147" height="147">
+                  <img src="photo/instagram/pic20.jpg" class="pic"> 
+                </li>
+              </div>
+              <div>
+                <li>
+                  <img src="photo/instagram/europe10.jpg" class="small" width="147" height="147"> 
+                  <img src="photo/instagram/europe10.jpg" class="pic"> 
+                </li>
+                <li>
+                  <img src="photo/instagram/pic0.jpg" class="small" width="147" height="147">
+                  <img src="photo/instagram/pic0.jpg" class="pic"> 
+                </li>
+                <li>
+                  <img src="photo/instagram/pic19.jpg" class="small" width="147" height="147">
+                  <img src="photo/instagram/pic19.jpg" class="pic"> 
+                </li>
+              </div>
+              <div>
+                <li>
+                  <img src="photo/instagram/pic10.jpg" class="small" width="147" height="147"> 
+                  <img src="photo/instagram/pic10.jpg" class="pic"> 
+                </li>
+                <li>
+                  <img src="photo/instagram/pic13.jpg" class="small" width="147" height="147">
+                  <img src="photo/instagram/pic13.jpg" class="pic"> 
+                </li>
+                <li>
+                  <img src="photo/instagram/pic14.jpg" class="small" width="147" height="147">
+                  <img src="photo/instagram/pic14.jpg" class="pic"> 
+                </li>
+              </div>
+            </ul>
+              
+          </div>
+          </fieldset>
+        </div>
+        
+      </div>
+      </div>
+      </div>
+      <!---------------------------------------------------------------->
+      <div class="result">
+
+        <div class="window" id="myWindow" style="margin: 32px 32px 32px 15px; width: 800px; height: 660px; float: left">
+          <div class="modal-dialog">
+          <div class="modal-content">
+          <div class="title-bar">
+            <div class="title-bar-text">
+              <img src="./icon/instalogo.png" alt="" id="logo">&nbsp; Instagram.exe
+            </div>
+    
+            <div class="title-bar-controls">
+              <button aria-label="Minimize"></button>
+              <button aria-label="Maximize"></button>
+              <button aria-label="Close"></button>
+            </div>
+          </div>
+          <div class="window-body">
+            <p id="under">File</p>
+            <p id="under">Edit</p>
+            <p id="under">View</p>
+            <p id="under" style="padding-left: 8px;">Options</p>
+            <p id="under" style="padding-left: 19px;">Help</p>
+            <br><br><br>
+            <div class="id">
+              <b id="userId" >ll.u_oll</b><!--굵은글씨-->
+              <br>
+            </div>
+            <hr>
+            <div class="profile">
+              <img src="img/hj.png" alt="" style="width: 50px; border-radius: 70%; float: left;margin-top: 3px;">
+              <br><br>
+              <b style="font-size: 15px; padding-left: 10px;" >ll.u_oll</b>
+              <br><br><br>
+              <hr>
+            </div>
+            <fieldset>
+            
+            <div id="gallery2" class="gallery2">
+       
+              
+                
+            </div>
+            </fieldset>
+          </div>
+          
+        </div>
+        </div>
+        </div>
+
+
+
+
+      </div>
+
+    
+</body>
+</html>
